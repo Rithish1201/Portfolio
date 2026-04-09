@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rithish R - Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="dark-theme">
+
+    <!-- Splash Screen / Entrance -->
+    <div id="splash-screen" class="splash-screen">
+        <canvas id="splash-bg-canvas"></canvas>
+        <div class="splash-content glass animate__animated animate__zoomIn" data-aos="zoom-in">
+            <div class="splash-dp-container">
+                <img src="profile.png" alt="Rithish R" class="splash-dp">
+            </div>
+            <p class="splash-subtitle">Welcome to my Digital Portfolio</p>
+            <button id="enter-btn" class="btn primary-btn glass magnetic-btn pulse">
+                <i class="fas fa-play"></i> Enter Experience
+            </button>
+        </div>
+    </div>
+
+    <!-- Global Scroll Progress Bar -->
+    <div class="scroll-progress-bar"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <canvas id="cursor-trail"></canvas>
+    <div class="spotlight-overlay"></div>
+
+    <!-- 3D Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Animated Aurora Liquid Background -->
+    <div class="aurora-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-logo">
+            <img src="profile.png" alt="Rithish R" class="nav-dp">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about" class="magnetic-btn">About</a></li>
+            <li><a href="#skills" class="magnetic-btn">Skills</a></li>
+            <li><a href="#projects" class="magnetic-btn">Projects</a></li>
+            <li><a href="#roadmap" class="magnetic-btn">Timeline</a></li>
+            <li><a href="#services" class="magnetic-btn">Services</a></li>
+            <li><a href="#education" class="magnetic-btn">Education</a></li>
+            <li><a href="#games" class="magnetic-btn">Lab & Games</a></li>
+            <li><a href="#contact" class="magnetic-btn">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content" data-aos="fade-right" data-aos-duration="1500">
+                <p class="greeting gradient-text">Hello, I am</p>
+                <h1 class="name glitched" data-text="Rithish R">Rithish R</h1>
+                <h2 class="title">I'm a <span id="typed-text"></span></h2>
+                <p class="subtitle">AI & Data Science Student at KGiSL Institute of Technology | Tech Enthusiast</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn primary-btn glass magnetic-btn">View My Work</a>
+                    <a href="#contact" class="btn secondary-btn magnetic-btn">Contact Me</a>
+                </div>
+                <div class="social-links-hero">
+                    <a href="https://github.com/Rithish1201" class="icon-bounce hover-glow" target="_blank"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/rithish-r-785337317?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                        class="icon-bounce hover-glow" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/_.rithish1201._?igsh=bTV4ZW00ZWpvcTk0"
+                        class="icon-bounce hover-glow" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="hero-image-wrapper glass" data-aos="zoom-in" data-aos-duration="1500" data-tilt
+                data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.5">
+                <div class="hero-image-border">
+                    <img src="profile.png" alt="Rithish R" class="hero-profile-pic">
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <p>Scroll Down</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <canvas id="matrix-canvas"></canvas>
+        <div class="container">
+            <h2 class="section-title glitched" data-text="About Me" data-aos="fade-right">About Me</h2>
+            <div class="about-content glass" data-aos="fade-up" data-aos-delay="200">
+                <div class="about-text">
+                    <p class="greeting">Hi, I'm <span class="highlight">Rithish R</span>,</p>
+                    <p>A 2nd-year <strong>B.Tech student in Artificial Intelligence & Data Science (AI&DS)</strong> at
+                        <strong>KGiSL Institute of Technology</strong>, located in Coimbatore.
+                    </p>
+                    <br>
+                    <p>I am a passionate <strong>technology enthusiast and aspiring developer</strong> who enjoys
+                        building innovative projects that combine software, hardware, and creative ideas. I love
+                        experimenting with new technologies and learning by building real-world projects.</p>
+                    <br>
+                    <p>My main interests include <strong>Web Development, Artificial Intelligence, AR/VR experiences,
+                            and IoT-based prototypes</strong>.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-box" data-tilt data-tilt-glare data-tilt-max-glare="0.4">
+                        <h3>2+</h3>
+                        <p>Years Coding</p>
+                    </div>
+                    <div class="stat-box" data-tilt data-tilt-glare data-tilt-max-glare="0.4">
+                        <h3>8+</h3>
+                        <p>Projects</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <h2 class="section-title glitched" data-text="Skills" data-aos="fade-left">Skills</h2>
+
+            <div class="skills-grid">
+                <!-- Programming -->
+                <div class="skill-category glass" data-tilt data-tilt-speed="400" data-tilt-max="15" data-aos="flip-up"
+                    data-aos-delay="100">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag hover-glow gradient-hover">Python</span>
+                        <span class="skill-tag hover-glow gradient-hover">JavaScript</span>
+                        <span class="skill-tag hover-glow gradient-hover">C / C++</span>
+                        <span class="skill-tag hover-glow gradient-hover">HTML / CSS</span>
+                        <span class="skill-tag hover-glow gradient-hover">SQL</span>
+                    </div>
+                </div>
+
+                <!-- Technologies -->
+                <div class="skill-category glass" data-tilt data-tilt-speed="400" data-tilt-max="15" data-aos="flip-up"
+                    data-aos-delay="200">
+                    <h3><i class="fas fa-microchip"></i> Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag hover-glow gradient-hover">React 19</span>
+                        <span class="skill-tag hover-glow gradient-hover">FastAPI / Node.js</span>
+                        <span class="skill-tag hover-glow gradient-hover">Gemini API</span>
+                        <span class="skill-tag hover-glow gradient-hover">TensorFlow</span>
+                        <span class="skill-tag hover-glow gradient-hover">IoT & ESP32</span>
+                    </div>
+                </div>
+
+                <!-- Tools & Others -->
+                <div class="skill-category glass" data-tilt data-tilt-speed="400" data-tilt-max="15" data-aos="flip-up"
+                    data-aos-delay="300">
+                    <h3><i class="fas fa-tools"></i> Tools & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag hover-glow gradient-hover">Git & GitHub</span>
+                        <span class="skill-tag hover-glow gradient-hover">Docker</span>
+                        <span class="skill-tag hover-glow gradient-hover">MongoDB / SQLite</span>
+                        <span class="skill-tag hover-glow gradient-hover">Monaco Editor</span>
+                        <span class="skill-tag hover-glow gradient-hover">PWA & Extensions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <h2 class="section-title glitched" data-text="Featured Projects" data-aos="fade-right">Featured Projects
+            </h2>
+
+            <div class="projects-grid">
+                <!-- Project 1: CrisisAI Live -->
+                <div class="project-card glass card-lift-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-img-wrapper image-zoom-hover">
+                        <img src="crisisai_mockup.png" alt="CrisisAI Live Project"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                            class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3><span class="highlight">🛡️</span> CrisisAI Live</h3>
+                        <p>Advanced public safety system with disaster detection, predictive analytics, and immersive UI.</p>
+                        <div class="project-tech">
+                            <span>React</span><span>Node.js</span><span>Socket.io</span><span>MongoDB</span>
+                        </div>
+                        <a href="https://github.com/Rithish1201/Crisis-AI" target="_blank" class="btn primary-btn btn-sm glass magnetic-btn">View Code</a>
+                    </div>
+                </div>
+
+                <!-- Project 2: CodeLab -->
+                <div class="project-card glass card-lift-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-img-wrapper image-zoom-hover">
+                        <img src="codelab_mockup_v2.png" alt="CodeLab Project"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                            class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3><span class="highlight">🚀</span> CodeLab</h3>
+                        <p>Professional online IDE with real-time compilation, visual debugging, and AI assistance.</p>
+                        <div class="project-tech">
+                            <span>Node.js</span><span>Monaco Editor</span><span>WebSockets</span>
+                        </div>
+                        <a href="https://github.com/Rithish1201/Code-Compiler" target="_blank" class="btn primary-btn btn-sm glass magnetic-btn">View Code</a>
+                    </div>
+                </div>
+
+                <!-- Project 3: JARVIS -->
+                <div class="project-card glass card-lift-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-img-wrapper image-zoom-hover">
+                        <img src="jarvis_industrial_mockup.png" alt="JARVIS Industrial IoT Project"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                            class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3><span class="highlight">🤖</span> JARVIS Smart Factory</h3>
+                        <p>AI-powered Industrial IoT platform for predictive maintenance and real-time machine analytics.</p>
+                        <div class="project-tech">
+                            <span>FastAPI</span><span>React 19</span><span>WebSockets</span>
+                        </div>
+                        <a href="https://github.com/Rithish1201/Jarvis" target="_blank" class="btn primary-btn btn-sm glass magnetic-btn">View Code</a>
+                    </div>
+                </div>
+
+                <!-- Project 4: AgriSmart360 -->
+                <div class="project-card glass card-lift-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-img-wrapper image-zoom-hover">
+                        <img src="agrismart360_mockup.png" alt="AgriSmart360 Project"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                            class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3><span class="highlight">🌱</span> AgriSmart360</h3>
+                        <p>Precision agriculture platform with IoT monitoring, AI disease detection, and smart irrigation.</p>
+                        <div class="project-tech">
+                            <span>React</span><span>IoT</span><span>TensorFlow</span>
+                        </div>
+                        <a href="https://github.com/Rithish1201/AgriSmart360" target="_blank" class="btn primary-btn btn-sm glass magnetic-btn">View Code</a>
+                    </div>
+                </div>
+
+                <!-- Project 5: SmartText AI -->
+                <div class="project-card glass card-lift-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-img-wrapper image-zoom-hover">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=2070" alt="SmartText AI Project"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                            class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3><span class="highlight">⚡</span> SmartText AI</h3>
+                        <p>AI utility platform for text processing, data extraction, and a custom Chrome extension.</p>
+                        <div class="project-tech">
+                            <span>React 19</span><span>Tailwind v4</span><span>Gemini API</span>
+                        </div>
+                        <a href="https://github.com/Rithish1201/SmartText-AI" target="_blank" class="btn primary-btn btn-sm glass magnetic-btn">View Code</a>
+                    </div>
+                </div>
+
+                <!-- Project 6: Math Master -->
+                <div class="project-card glass card-lift-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-img-wrapper image-zoom-hover">
+                        <img src="math_master_mockup.png" alt="Math Master Project"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                            class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3><span class="highlight">🔢</span> Math Master</h3>
+                        <p>Comprehensive scientific computation suite for numerical methods, calculus, and statistics.</p>
+                        <div class="project-tech">
+                            <span>Python</span><span>Streamlit</span><span>NumPy</span><span>SciPy</span>
+                        </div>
+                        <a href="https://github.com/Rithish1201/numerical_app" target="_blank" class="btn primary-btn btn-sm glass magnetic-btn">View Code</a>
+                    </div>
+                </div>
+
+                <!-- Project 7: KeralaVerse -->
+                <div class="project-card glass card-lift-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-img-wrapper image-zoom-hover">
+                        <img src="keralaverse_mockup_v2.png" alt="KeralaVerse Project"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                            class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3><span class="highlight">🌴</span> KeralaVerse</h3>
+                        <p>Immersive AR/VR heritage platform showcased at IEEE HackKerala, featuring 3D cultural models.</p>
+                        <div class="project-tech">
+                            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                        </div>
+                        <a href="https://github.com/Rithish1201/keralaverse" target="_blank" class="btn primary-btn btn-sm glass magnetic-btn">View Code</a>
+                    </div>
+                </div>
+
+                <!-- Project 8: IP & URL Analyzer -->
+                <div class="project-card glass card-lift-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-img-wrapper image-zoom-hover">
+                        <img src="ip_analyzer_mockup.png" alt="IP & URL Analyzer Project"
+                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                            class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3><span class="highlight">🛡️</span> IP & URL Analyzer</h3>
+                        <p>Cybersecurity tool for threat intelligence and geolocation, developed for KPR Hackathon.</p>
+                        <div class="project-tech">
+                            <span>Python</span><span>Streamlit</span><span>SQLite</span><span>APIs</span>
+                        </div>
+                        <a href="https://github.com/Rithish1201/IP-Link-Analyser" target="_blank" class="btn primary-btn btn-sm glass magnetic-btn">View Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="section roadmap-section">
+        <div class="container">
+            <h2 class="section-title glitched" data-text="My Journey" data-aos="fade-right">My Journey</h2>
+
+            <div class="timeline">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <h3>Started B.Tech (AI & DS)</h3>
+                        <p class="date">2024 Early</p>
+                        <p>Began my journey at KGiSL Institute of Technology, focusing on AI fundamentals and Python programming.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <h3>Jarvis AI Assistant</h3>
+                        <p class="date">2024 Mid</p>
+                        <p>Constructed my first voice-activated desktop assistant using Python, speech recognition, and basic AI logic.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <h3>IP & URL Analyzer</h3>
+                        <p class="date">2024 Late</p>
+                        <p>Participated in the KPR Hackathon and developed my first major cybersecurity tool for threat intelligence.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <h3>KeralaVerse</h3>
+                        <p class="date">2025 Early</p>
+                        <p>Showcased this immersive AR/VR heritage platform at IEEE HackKerala, exploring WebXR technologies.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <h3>Math Master</h3>
+                        <p class="date">2025 Mid</p>
+                        <p>Developed a comprehensive scientific computation suite specializing in advanced numerical methods.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <h3>SmartText AI</h3>
+                        <p class="date">2025 Late</p>
+                        <p>Built a full-stack AI utility platform with document parsing and a custom Chrome extension.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <h3>JARVIS Smart Factory</h3>
+                        <p class="date">2026 Early</p>
+                        <p>Evolved my desktop assistant into a professional Industrial IoT platform for smart manufacturing.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <h3>CodeLab</h3>
+                        <p class="date">2026 Early</p>
+                        <p>Launched a professional real-time coding IDE with visual debugging and AI assistance.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <h3>AgriSmart360</h3>
+                        <p class="date">2026 Mid</p>
+                        <p>Engineered a precision agriculture platform integrating IoT monitoring and AI disease detection.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <h3>CrisisAI Live</h3>
+                        <p class="date">Current</p>
+                        <p>Evolved public safety intelligence with disaster detection and predictive analytics systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Stats Section -->
+    <section id="github-stats" class="section github-section">
+        <div class="container text-center">
+            <h2 class="section-title glitched" data-text="GitHub Stats" data-aos="fade-right">GitHub Stats</h2>
+            <div class="github-container glass" data-aos="fade-up">
+                <div class="github-2026-header mb-4">
+                    <h3 class="highlight"><i class="fas fa-fire"></i> 2026 Engineering Pulse</h3>
+                    <p class="text-sm opacity-70">Real-time data synchronization with GitHub Activity</p>
+                </div>
+                <div class="github-heatmap mt-4 mb-4">
+                    <img src="https://ghchart.rshah.org/00f2fe/Rithish1201?v=2026" alt="Rithish's 2026 Contributions" style="width: 100%; max-width: 800px; filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.3));">
+                </div>
+                <div class="github-stats-grid mt-4" style="display: flex; flex-direction: column; gap: 20px; align-items: center;">
+                    <img src="https://github-readme-stats-one.vercel.app/api?username=Rithish1201&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true&cache_seconds=1800&v=2026"
+                        alt="GitHub Stats" style="max-width: 100%;">
+                    <img src="https://github-readme-stats-one.vercel.app/api/top-langs/?username=Rithish1201&layout=compact&theme=tokyonight&hide_border=true&cache_seconds=1800&v=2026"
+                        alt="Top Languages" style="max-width: 100%;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Tech Lab & Mini Games (Combined Section for Layout) -->
+    <section id="games" class="section lab-section">
+        <div class="container">
+            <h2 class="section-title glitched" data-text="Tech Lab & Arcade" data-aos="fade-right">Tech Lab & Arcade
+            </h2>
+
+            <div class="lab-grid">
+                <!-- 3D Tech Orbit -->
+                <div class="tech-orbit-container glass" data-aos="fade-up">
+                    <h3 class="text-center mb-4">Tech Orbit</h3>
+                    <div class="orbit-wrap">
+                        <div class="orbit-center hover-glow"><i class="fas fa-brain"></i></div>
+                        <div class="orbit-ring">
+                            <i class="fab fa-html5 orbit-icon" style="--delay: 0s;"></i>
+                            <i class="fab fa-css3-alt orbit-icon" style="--delay: 2s;"></i>
+                            <i class="fab fa-js orbit-icon" style="--delay: 4s;"></i>
+                            <i class="fab fa-python orbit-icon" style="--delay: 6s;"></i>
+                            <i class="fab fa-react orbit-icon" style="--delay: 8s;"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mini Game: Tic-Tac-Toe -->
+                <div class="mini-game-container glass" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-center mb-4">Memory Tic-Tac-Toe</h3>
+                    <div class="tictactoe-board" id="tic-tac-toe-board">
+                        <div class="cell" data-index="0"></div>
+                        <div class="cell" data-index="1"></div>
+                        <div class="cell" data-index="2"></div>
+                        <div class="cell" data-index="3"></div>
+                        <div class="cell" data-index="4"></div>
+                        <div class="cell" data-index="5"></div>
+                        <div class="cell" data-index="6"></div>
+                        <div class="cell" data-index="7"></div>
+                        <div class="cell" data-index="8"></div>
+                    </div>
+                    <button id="reset-game" class="btn primary-btn btn-sm mt-4 glass magnetic-btn">Reset Game</button>
+                    <p id="game-status" class="mt-3 text-center">Your Turn (X)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section blog-section">
+        <div class="container">
+            <h2 class="section-title glitched" data-text="Latest Insights" data-aos="fade-left">Latest Insights</h2>
+            <div class="blog-grid">
+                <article class="blog-card glass" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?auto=format&fit=crop&q=80&w=2070" alt="Future of WebXR" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div class="blog-content">
+                        <span class="blog-date">Coming Soon on June</span>
+                        <h3>The Future of WebXR</h3>
+                        <p>Exploring how AR and VR are reshaping modern web development and user experiences.</p>
+                        <a href="javascript:void(0);" onclick="alert('Full article on WebXR coming soon! Stay tuned.');"
+                            class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card glass" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=2070" alt="Building Jarvis AI"
+                        style="width: 100%; height: 200px; object-fit: cover;">
+                    <div class="blog-content">
+                        <span class="blog-date">Coming Soon on June</span>
+                        <h3>Building Jarvis AI in Python</h3>
+                        <p>A deep dive into how I constructed a voice-activated desktop assistant using open-source LLMs.</p>
+                        <a href="javascript:void(0);"
+                            onclick="alert('Full article on Jarvis AI coming soon! Stay tuned.');"
+                            class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card glass" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=2070" alt="IoT Sensors" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div class="blog-content">
+                        <span class="blog-date">Coming Soon on June</span>
+                        <h3>IoT Sensors on a Budget</h3>
+                        <p>How to monitor real-time environments without breaking the bank using Arduino and ESP8266.</p>
+                        <a href="javascript:void(0);"
+                            onclick="alert('Full article on IoT Sensors coming soon! Stay tuned.');"
+                            class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== SERVICES ==================== -->
+    <section id="services" class="section services-section">
+        <div class="container">
+            <h2 class="section-title glitched" data-text="What I Offer" data-aos="fade-left">What I Offer</h2>
+            <div class="services-grid">
+                <div class="service-card glass" data-aos="fade-up" data-aos-delay="0">
+                    <div class="service-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Full‑Stack Web Development</h3>
+                    <p>End-to-end web applications using React 19, Node.js, FastAPI, and MongoDB with real-time WebSocket support.</p>
+                    <ul class="service-tech"><li>React 19</li><li>Node.js</li><li>FastAPI</li><li>MongoDB</li></ul>
+                </div>
+                <div class="service-card glass" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon"><i class="fas fa-brain"></i></div>
+                    <h3>AI / ML Solutions</h3>
+                    <p>Custom AI models for anomaly detection, predictive analytics, NLP, and computer vision using TensorFlow and Gemini API.</p>
+                    <ul class="service-tech"><li>TensorFlow</li><li>Gemini API</li><li>Scikit-learn</li></ul>
+                </div>
+                <div class="service-card glass" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon"><i class="fas fa-microchip"></i></div>
+                    <h3>IoT Prototyping</h3>
+                    <p>Sensor fusion, real-time dashboards, and industrial monitoring systems using Arduino, ESP8266, and MQTT.</p>
+                    <ul class="service-tech"><li>Arduino</li><li>ESP8266</li><li>MQTT</li><li>WebSocket</li></ul>
+                </div>
+                <div class="service-card glass" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon"><i class="fas fa-palette"></i></div>
+                    <h3>UI / UX Design</h3>
+                    <p>Modern glassmorphism and neomorphism interfaces with smooth animations, dark themes, and responsive layouts.</p>
+                    <ul class="service-tech"><li>Figma</li><li>CSS3</li><li>Framer Motion</li></ul>
+                </div>
+                <div class="service-card glass" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon"><i class="fas fa-vr-cardboard"></i></div>
+                    <h3>AR / VR Experiences</h3>
+                    <p>WebXR-based immersive experiences for heritage tourism, training simulations, and digital twin environments.</p>
+                    <ul class="service-tech"><li>WebXR</li><li>Three.js</li><li>A-Frame</li></ul>
+                </div>
+                <div class="service-card glass" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Cybersecurity Tools</h3>
+                    <p>Threat intelligence dashboards, IP/URL analysis tools, and network monitoring utilities for security operations.</p>
+                    <ul class="service-tech"><li>Python</li><li>Flask</li><li>VirusTotal API</li></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== EDUCATION TIMELINE ==================== -->
+    <section id="education" class="section education-section">
+        <div class="container">
+            <h2 class="section-title glitched" data-text="Education" data-aos="fade-right">Education</h2>
+            <div class="edu-timeline">
+                <div class="edu-item glass" data-aos="fade-right" data-aos-delay="0">
+                    <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="edu-content">
+                        <h3>B.Tech – Artificial Intelligence & Data Science (AI&DS)</h3>
+                        <span class="edu-institution">KGiSL Institute of Technology, Coimbatore</span>
+                        <span class="edu-date">2024 – 2027 (Expected)</span>
+                        <p>Currently pursuing a Bachelor of Technology (B.Tech) in Artificial Intelligence and Data Science. My academic focus includes core areas such as programming, data structures, machine learning, and data analytics. I actively work on practical projects to strengthen technical expertise and stay updated with emerging technologies.</p>
+                        <div class="edu-tags">
+                            <span class="skill-tag">AI / ML</span><span class="skill-tag">Data Science</span>
+                            <span class="skill-tag">IoT</span><span class="skill-tag">Cloud</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="edu-item glass" data-aos="fade-left" data-aos-delay="150">
+                    <div class="edu-icon"><i class="fas fa-school"></i></div>
+                    <div class="edu-content">
+                        <h3>Higher Secondary (12th Grade) – Science Stream</h3>
+                        <span class="edu-institution">Amrita Vidyalayam (CBSE)</span>
+                        <span class="edu-date">2022 – 2024</span>
+                        <p>Completed schooling at Amrita Vidyalayam, pursuing the Science stream during higher secondary education. This phase helped build a strong academic foundation in Mathematics and Computer Science, while enhancing analytical thinking and problem-solving abilities.</p>
+                        <div class="edu-tags">
+                            <span class="skill-tag">Physics</span><span class="skill-tag">Mathematics</span>
+                            <span class="skill-tag">Computer Science</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="edu-item glass" data-aos="fade-right" data-aos-delay="300">
+                    <div class="edu-icon"><i class="fas fa-book"></i></div>
+                    <div class="edu-content">
+                        <h3>Secondary Education (10th Grade)</h3>
+                        <span class="edu-institution">Amrita Vidyalayam (CBSE)</span>
+                        <span class="edu-date">2021 – 2022</span>
+                        <p>Focused on specialized AI subjects and core engineering principles.</p>
+                        <div class="edu-tags">
+                            <span class="skill-tag">Data Structures</span>
+                            <span class="skill-tag">Algorithms</span>
+                            <span class="skill-tag">Python for DS</span>
+                            <span class="skill-tag">AI Ethics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TECH STACK VISUALIZATION ==================== -->
+    <section id="tech-stack" class="section techstack-section">
+        <div class="container text-center">
+            <h2 class="section-title glitched" data-text="Tech Stack Universe" data-aos="fade-left">Tech Stack Universe</h2>
+            <p class="section-sub" data-aos="fade-up">Hover over a technology to explore projects built with it</p>
+            <div class="tech-universe" data-aos="zoom-in">
+                <div class="tech-orbit orbit-1">
+                    <div class="tech-planet" data-tech="Python" data-projects="JARVIS, AgriSmart360, CrisisAI, SmartText AI"><i class="fab fa-python"></i><span>Python</span></div>
+                    <div class="tech-planet" data-tech="JavaScript" data-projects="KeralaVerse, Math Master, IP Analyzer"><i class="fab fa-js"></i><span>JavaScript</span></div>
+                </div>
+                <div class="tech-orbit orbit-2">
+                    <div class="tech-planet" data-tech="React" data-projects="CodeLab, SmartText AI, CrisisAI"><i class="fab fa-react"></i><span>React</span></div>
+                    <div class="tech-planet" data-tech="Node.js" data-projects="CodeLab, CrisisAI"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+                    <div class="tech-planet" data-tech="FastAPI" data-projects="JARVIS Factory, AgriSmart360"><i class="fas fa-bolt"></i><span>FastAPI</span></div>
+                </div>
+                <div class="tech-orbit orbit-3">
+                    <div class="tech-planet" data-tech="TensorFlow" data-projects="JARVIS Factory, AgriSmart360"><i class="fas fa-brain"></i><span>TensorFlow</span></div>
+                    <div class="tech-planet" data-tech="MongoDB" data-projects="CrisisAI, CodeLab"><i class="fas fa-database"></i><span>MongoDB</span></div>
+                    <div class="tech-planet" data-tech="HTML/CSS" data-projects="KeralaVerse, IP Analyzer, Portfolio"><i class="fab fa-html5"></i><span>HTML/CSS</span></div>
+                    <div class="tech-planet" data-tech="Three.js" data-projects="Portfolio, KeralaVerse"><i class="fas fa-cube"></i><span>Three.js</span></div>
+                </div>
+                <div class="tech-core">
+                    <div class="core-ring"></div>
+                    <span>RR.</span>
+                </div>
+            </div>
+            <div class="tech-tooltip glass" id="tech-tooltip"></div>
+        </div>
+    </section>
+
+    <!-- ==================== CODING ACTIVITY ==================== -->
+    <section id="coding-activity" class="section coding-section">
+        <div class="container text-center">
+            <h2 class="section-title glitched" data-text="Coding Activity" data-aos="fade-right">Coding Activity</h2>
+            <p class="section-sub" data-aos="fade-up">Weekly time spent across languages & tools</p>
+            <div class="coding-grid">
+                <div class="coding-card glass" data-aos="fade-up" data-aos-delay="0">
+                    <h3><i class="fas fa-chart-bar"></i> Languages This Week</h3>
+                    <canvas id="lang-chart" height="220"></canvas>
+                </div>
+                <div class="coding-card glass" data-aos="fade-up" data-aos-delay="150">
+                    <h3><i class="fas fa-clock"></i> Daily Coding Hours</h3>
+                    <canvas id="hours-chart" height="220"></canvas>
+                </div>
+            </div>
+            <div class="coding-stats-row" data-aos="fade-up">
+                <div class="coding-stat glass"><i class="fab fa-python"></i><span>Python</span><strong>40%</strong></div>
+                <div class="coding-stat glass"><i class="fab fa-js"></i><span>JavaScript</span><strong>30%</strong></div>
+                <div class="coding-stat glass"><i class="fab fa-react"></i><span>React</span><strong>20%</strong></div>
+                <div class="coding-stat glass"><i class="fas fa-code"></i><span>Other</span><strong>10%</strong></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FUN FACTS & HOBBIES ==================== -->
+    <section id="fun-facts" class="section funfacts-section">
+        <div class="container">
+            <h2 class="section-title glitched" data-text="Fun Facts & Hobbies" data-aos="fade-left">Fun Facts & Hobbies</h2>
+            <div class="funfacts-grid">
+                <div class="funfact-card glass interactive-fact" data-aos="zoom-in" data-aos-delay="0" data-info="Black coffee devotee · Espresso shots for deep focus">
+                    <div class="funfact-emoji">☕</div>
+                    <div class="funfact-num counter-num" data-target="500">0</div><span>+</span>
+                    <p>Cups of Coffee Consumed</p>
+                    <div class="fact-detail">Click to reveal</div>
+                </div>
+                <div class="funfact-card glass interactive-fact" data-aos="zoom-in" data-aos-delay="100" data-info="Productivity peaks between 11 PM and 4 AM">
+                    <div class="funfact-emoji">🌙</div>
+                    <div class="funfact-label">Night Owl</div>
+                    <p>Best code written after midnight</p>
+                    <div class="fact-detail">Click to reveal</div>
+                </div>
+                <div class="funfact-card glass interactive-fact" data-aos="zoom-in" data-aos-delay="200" data-info="Freefire, PUBG, GTA 5, Fortnite & Strategy RPGs">
+                    <div class="funfact-emoji">🎮</div>
+                    <div class="funfact-label">Gamer</div>
+                    <p>Battle Royale & open-world stunts</p>
+                    <div class="fact-detail">Click to reveal</div>
+                </div>
+                <div class="funfact-card glass interactive-fact" data-aos="zoom-in" data-aos-delay="300" data-info="Phonk, Lo-fi, and Synthwave for rhythm-based coding">
+                    <div class="funfact-emoji">🎵</div>
+                    <div class="funfact-label">Music Lover</div>
+                    <p>Phonk & lo-fi while coding</p>
+                    <div class="fact-detail">Click to reveal</div>
+                </div>
+                <div class="funfact-card glass interactive-fact" data-aos="zoom-in" data-aos-delay="400" data-info="Medium, Dev.to, and Research Papers on AI/ML">
+                    <div class="funfact-emoji">📚</div>
+                    <div class="funfact-num counter-num" data-target="30">0</div><span>+</span>
+                    <p>Tech Articles Read per Month</p>
+                    <div class="fact-detail">Click to reveal</div>
+                </div>
+                <div class="funfact-card glass interactive-fact" data-aos="zoom-in" data-aos-delay="500" data-info="Exploring Generative AI, LLMs, and Neural Networks">
+                    <div class="funfact-emoji">🤖</div>
+                    <div class="funfact-label">AI Enthusiast</div>
+                    <p>Believes AI will build the future</p>
+                    <div class="fact-detail">Click to reveal</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SPOTIFY WIDGET ==================== -->
+    <section id="spotify" class="section spotify-section">
+        <div class="container text-center">
+            <h2 class="section-title glitched" data-text="🎵 My Coding Playlist" data-aos="fade-right">🎵 My Coding Playlist</h2>
+            <p class="section-sub" data-aos="fade-up">The soundtrack behind every late‑night coding session</p>
+            <div class="spotify-card glass" data-aos="zoom-in">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX5trt9i14X7j?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== INTERACTIVE TERMINAL ==================== -->
+    <section id="terminal" class="section terminal-section">
+        <div class="container">
+            <h2 class="section-title glitched" data-text="Interactive Terminal" data-aos="fade-left">Interactive Terminal</h2>
+            <p class="section-sub text-center" data-aos="fade-up">Type a command and press Enter · Try: <code>help</code>, <code>whoami</code>, <code>skills</code>, <code>hobbies</code>, <code>clear</code></p>
+            <div class="terminal-window glass" data-aos="fade-up">
+                <div class="terminal-header">
+                    <span class="t-dot red"></span><span class="t-dot yellow"></span><span class="t-dot green"></span>
+                    <span class="t-title">rithish@portfolio:~$</span>
+                </div>
+                <div class="terminal-body" id="terminal-body">
+                    <div class="t-line"><span class="t-prompt">rithish@portfolio:~$</span> <span class="t-text">Welcome! Type <strong>help</strong> to see available commands.</span></div>
+                </div>
+                <div class="terminal-input-row">
+                    <span class="t-prompt">rithish@portfolio:~$</span>
+                    <input type="text" id="terminal-input" class="terminal-input" placeholder="Type a command..." autocomplete="off" spellcheck="false">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== VISITOR COUNTER ==================== -->
+    <section id="visitor-counter" class="section visitor-section">
+        <div class="container text-center">
+            <h2 class="section-title glitched" data-text="Portfolio Visitors" data-aos="fade-right">Portfolio Visitors</h2>
+            <div class="visitor-card glass" data-aos="zoom-in">
+                <div class="visitor-icon"><i class="fas fa-users"></i></div>
+                <div class="visitor-num" id="visitor-count">—</div>
+                <p>Total Portfolio Visitors</p>
+                <div class="visitor-live"><span class="live-dot"></span> Live Counter</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="phonk_veki_veki.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-control">
+        <button id="music-toggle" class="glass magnetic-btn hover-glow playing" title="Toggle Music">
+            <i class="fas fa-volume-up"></i>
+        </button>
+    </div>
+
+    <!-- AI Chatbot Section (Bottom Right Fixed / Expandable) -->
+    <div class="chatbot-widget">
+        <button id="chatbot-toggle" class="glass magnetic-btn hover-glow">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div id="chatbot-panel" class="chatbot-panel glass hidden">
+            <div class="chat-header">
+                <h3><i class="fas fa-brain"></i> Jarvis AI Assistant</h3>
+                <button id="close-chat"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-body" id="chat-output">
+                <p class="bot-msg">Greetings. I am Jarvis, Rithish's AI assistant. Ask me about his skills, projects, or
+                    background.</p>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Ask Jarvis something...">
+                <button id="send-chat" class="glass"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer / Contact Section -->
+    <footer id="contact" class="footer-section">
+        <div class="container footer-content">
+            <div class="footer-left" data-aos="fade-right">
+                <h2>Let's build something <span class="highlight">amazing</span>.</h2>
+                <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your
+                    visions.</p>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Coimbatore, Tamil Nadu, India</p>
+                    <p><i class="fas fa-envelope"></i> rithish1201@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +91 9965968697</p>
+                </div>
+            </div>
+
+            <div class="footer-right" data-aos="fade-left">
+                <div class="social-links-footer">
+                    <a href="https://github.com/Rithish1201" class="magnetic-btn hover-glow" target="_blank"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/rithish-r-785337317?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                        class="magnetic-btn hover-glow" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/_.rithish1201._?igsh=bTV4ZW00ZWpvcTk0"
+                        class="magnetic-btn hover-glow" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p class="copyright">© 2026 Rithish R. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Libraries (Three.js, GSAP, Typed.js, AOS, Vanilla Tilt, Lenis) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+    <!-- Chart.js for Coding Activity -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Extra interactivity for new sections -->
+    <script src="extra.js"></script>
+</body>
+
+</html>
