@@ -80,13 +80,32 @@ if (hamburger && navLinks) {
     });
 }
 
-// Update Scroll Progress Bar
+// Update Scroll Progress Bar & Navbar Minimization/Hide
 const progressBar = document.querySelector('.scroll-progress-bar');
+const mainNavbar = document.querySelector('.navbar');
+let lastScrollTop = 0;
+
 window.addEventListener('scroll', () => {
-    const scrollTotal = document.documentElement.scrollTop;
+    const scrollTotal = window.pageYOffset || document.documentElement.scrollTop;
     const heightTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrollPosition = (scrollTotal / heightTotal) * 100;
-    progressBar.style.width = scrollPosition + '%';
+    if (progressBar) progressBar.style.width = scrollPosition + '%';
+
+    // Hide navbar entirely on scroll down, shrink/show on scroll up
+    if (mainNavbar) {
+        if (scrollTotal > 80) {
+            mainNavbar.classList.add('scrolled');
+            if (scrollTotal > lastScrollTop) {
+                mainNavbar.classList.add('hide');
+            } else {
+                mainNavbar.classList.remove('hide');
+            }
+        } else {
+            mainNavbar.classList.remove('scrolled');
+            mainNavbar.classList.remove('hide');
+        }
+    }
+    lastScrollTop = scrollTotal <= 0 ? 0 : scrollTotal; // Prevent negative scroll bounce
 });
 
 // Typing Text Animation

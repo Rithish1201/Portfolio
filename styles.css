@@ -293,6 +293,26 @@ body {
     transition: all 0.3s ease;
 }
 
+.navbar.scrolled {
+    padding: 8px 50px;
+    background: rgba(5, 5, 5, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.navbar.hide {
+    transform: translateY(-100%);
+}
+
+.navbar.scrolled .nav-logo {
+    font-size: 22px;
+}
+
+.navbar.scrolled .nav-links a {
+    font-size: 13px;
+}
+
 .nav-logo {
     font-family: var(--font-heading);
     font-size: 28px;
@@ -2643,4 +2663,66 @@ body {
 @keyframes rotate-border {
     0% { filter: hue-rotate(0deg); }
     100% { filter: hue-rotate(360deg); }
+}
+
+/* ============================================
+   GLOBAL MOBILE FIXES FOR NEW SECTIONS (768px)
+   ============================================ */
+@media (max-width: 768px) {
+    /* Reset massive paddings that cause overflow */
+    .services-section, .education-section, .techstack-section, 
+    .coding-section, .funfacts-section, .spotify-section, 
+    .terminal-section, .visitor-section {
+        padding: 60px 20px;
+    }
+
+    /* Scale down the entire Tech Stack Universe without breaking orbit geometry */
+    .tech-universe {
+        transform: scale(0.65);
+        transform-origin: center center;
+    }
+
+    /* Coding Grid - Force single column and constrain width */
+    .coding-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .coding-card {
+        padding: 16px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Ensure chart canvases never exceed container width */
+    .coding-card canvas {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Footer Social Links - Force horizontal row, prevent stacking */
+    .social-links-footer {
+        display: flex;
+        flex-direction: row !important;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 25px;
+        flex-wrap: wrap;
+    }
+
+    .footer-right {
+        text-align: center;
+        width: 100%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Keep music control clear of the footer icons */
+    .music-control {
+        bottom: 80px;
+        transform: scale(0.85); /* Slightly smaller so it's less intrusive */
+    }
 }
