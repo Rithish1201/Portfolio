@@ -124,13 +124,111 @@ Location : Coimbatore, Tamil Nadu, India</span>`,
     const langChart = document.getElementById('lang-chart');
     const hoursChart = document.getElementById('hours-chart');
 
-    if (langChart && typeof Chart !== 'undefined') {
+    async function fetchGitHubStats(username) {
+        const cacheKey = `gh_stats_${username}`;
+        const cached = localStorage.getItem(cacheKey);
+        const cacheTime = localStorage.getItem(`${cacheKey}_time`);
+        
+        if (cached && cacheTime && (Date.now() - parseInt(cacheTime) < 3600000)) {
+            return JSON.parse(cached);
+        }
+
+        try {
+            const [repoRes, eventsRes] = await Promise.all([
+                fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=pushed`),
+                fetch(`https://api.github.com/users/${username}/events?per_page=100`)
+            ]);
+
+            const repos = await repoRes.json();
+            const languages = {};
+            repos.forEach(r => {
+                if (r.language) {
+                    languages[r.language] = (languages[r.language] || 0) + 1;
+                }
+            });
+
+            const topLangs = Object.entries(languages)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 5);
+                
+            let total = 0;
+            topLangs.forEach(l => total += l[1]);
+            
+            const langLabels = [];
+            const langData = [];
+            topLangs.forEach(l => {
+                langLabels.push(l[0]);
+                langData.push(Math.round((l[1] / total) * 100));
+            });
+
+            const events = await eventsRes.json();
+            const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            const commitCounts = [0, 0, 0, 0, 0, 0, 0];
+            const displayLabels = [];
+            
+            const today = new Date().getDay();
+            for(let i=6; i>=0; i--) {
+                let d = today - i;
+                if(d < 0) d += 7;
+                displayLabels.push(days[d]);
+            }
+            
+            const oneWeekAgo = Date.now() - (7 * 24 * 60 * 60 * 1000);
+            
+            events.forEach(ev => {
+                if (ev.type === 'PushEvent' || ev.type === 'CreateEvent') {
+                    const evDate = new Date(ev.created_at);
+                    if (evDate.getTime() > oneWeekAgo) {
+                        commitCounts[evDate.getDay()]++;
+                    }
+                }
+            });
+            
+            const orderedCommits = [];
+            for(let i=6; i>=0; i--) {
+                let d = today - i;
+                if(d < 0) d += 7;
+                orderedCommits.push(commitCounts[d]);
+            }
+            
+            const finalData = {
+                langLabels: langLabels.length > 0 ? langLabels : ['Python', 'JavaScript', 'HTML', 'CSS', 'C++'],
+                langData: langData.length > 0 ? langData : [40, 25, 20, 10, 5],
+                commitLabels: displayLabels,
+                commitData: orderedCommits
+            };
+            
+            localStorage.setItem(cacheKey, JSON.stringify(finalData));
+            localStorage.setItem(`${cacheKey}_time`, Date.now().toString());
+            
+            return finalData;
+
+        } catch (error) {
+            console.error("Error fetching GitHub stats:", error);
+            return null;
+        }
+    }
+
+    async function initCharts() {
+        if (!langChart || !hoursChart || typeof Chart === 'undefined') return;
+
+        let stats = await fetchGitHubStats('Rithish1201');
+        
+        if (!stats) {
+            stats = {
+                langLabels: ['Python', 'JavaScript', 'React/JSX', 'CSS/HTML', 'C++', 'Other'],
+                langData: [40, 25, 20, 8, 4, 3],
+                commitLabels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                commitData: [3, 5, 4, 6, 7, 9, 5] 
+            };
+        }
+
         new Chart(langChart, {
             type: 'doughnut',
             data: {
-                labels: ['Python', 'JavaScript', 'React/JSX', 'CSS/HTML', 'C++', 'Other'],
+                labels: stats.langLabels,
                 datasets: [{
-                    data: [40, 25, 20, 8, 4, 3],
+                    data: stats.langData,
                     backgroundColor: [
                         'rgba(0,242,254,0.7)',
                         'rgba(233,0,255,0.7)',
@@ -149,16 +247,14 @@ Location : Coimbatore, Tamil Nadu, India</span>`,
                 cutout: '65%'
             }
         });
-    }
 
-    if (hoursChart && typeof Chart !== 'undefined') {
         new Chart(hoursChart, {
             type: 'bar',
             data: {
-                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                labels: stats.commitLabels,
                 datasets: [{
-                    label: 'Hours',
-                    data: [3, 5, 4, 6, 7, 9, 5],
+                    label: 'Commits',
+                    data: stats.commitData,
                     backgroundColor: 'rgba(0,242,254,0.3)',
                     borderColor: 'rgba(0,242,254,0.8)',
                     borderWidth: 2,
@@ -176,6 +272,8 @@ Location : Coimbatore, Tamil Nadu, India</span>`,
             }
         });
     }
+
+    initCharts();
 
 
     /* ─────────────────────────────────────────
