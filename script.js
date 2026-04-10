@@ -45,6 +45,41 @@ AOS.init({
     offset: 100,
 });
 
+// Touch Device Detection
+const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+// Hamburger Menu Logic
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+if (hamburger && navLinks) {
+    hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Close menu when a nav link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Close menu on outside click
+    document.addEventListener('click', (e) => {
+        if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+}
+
 // Update Scroll Progress Bar
 const progressBar = document.querySelector('.scroll-progress-bar');
 window.addEventListener('scroll', () => {
@@ -174,28 +209,24 @@ if (trailCanvas) {
     animateTrail();
 }
 
-// Magnetic Buttons
-const magneticBtns = document.querySelectorAll('.magnetic-btn');
+// Magnetic Buttons (desktop only)
+if (!isTouchDevice) {
+    const magneticBtns = document.querySelectorAll('.magnetic-btn');
 
-magneticBtns.forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-        const position = btn.getBoundingClientRect();
-        const x = e.clientX - position.left - position.width / 2;
-        const y = e.clientY - position.top - position.height / 2;
+    magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const position = btn.getBoundingClientRect();
+            const x = e.clientX - position.left - position.width / 2;
+            const y = e.clientY - position.top - position.height / 2;
 
-        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-        cursorDot.style.transform = 'translate(-50%, -50%) scale(1.5)';
-        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
-        cursorOutline.style.borderColor = 'var(--accent-color)';
+            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0px, 0px)';
+        });
     });
-
-    btn.addEventListener('mouseleave', () => {
-        btn.style.transform = 'translate(0px, 0px)';
-        cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
-        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
-        cursorOutline.style.borderColor = 'var(--secondary-color)';
-    });
-});
+}
 
 // Three.js Background Animation (Particles)
 const scene = new THREE.Scene();
